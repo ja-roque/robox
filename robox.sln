@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{4C3DADF3-6086-708C-A54C-11FA1C40DB89}") = "robox", "Assembly-CSharp.csproj", "{D81FD262-D3E1-0CBB-6839-9EE3895A687A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D81FD262-D3E1-0CBB-6839-9EE3895A687A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81FD262-D3E1-0CBB-6839-9EE3895A687A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81FD262-D3E1-0CBB-6839-9EE3895A687A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81FD262-D3E1-0CBB-6839-9EE3895A687A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
