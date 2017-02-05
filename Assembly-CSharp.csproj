@@ -46,13 +46,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\blocking.cs" />
+     <Compile Include="Assets\fistAnimation.cs" />
+     <Compile Include="Assets\hitBoxBlock.cs" />
+     <Compile Include="Assets\hitBoxMove.cs" />
+     <Compile Include="Assets\leftFistCommands.cs" />
+     <Compile Include="Assets\scripts\AiDefense.cs" />
      <Compile Include="Assets\scripts\Controls.cs" />
-     <Compile Include="Assets\scripts\Curve.cs" />
      <Compile Include="Assets\scripts\Fist.cs" />
      <Compile Include="Assets\scripts\Health.cs" />
-     <Compile Include="Assets\scripts\Hook.cs" />
+     <Compile Include="Assets\scripts\col2.cs" />
      <Compile Include="Assets\scripts\colInstruction.cs" />
-     <Compile Include="Assets\scripts\idleCurve.cs" />
+     <Compile Include="Assets\scripts\fistAnimations.cs" />
+     <Compile Include="Assets\scripts\rivalAnimations.cs" />
+     <Compile Include="Assets\scripts\rivalAttack.cs" />
      <Compile Include="Assets\scripts\rivalBehavior.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

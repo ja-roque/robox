@@ -1,18 +1,24 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class rivalBehavior : MonoBehaviour {
 
 //Instance of the curve class created for curve motion of the rival's idle stance
-private idleCurve idleStance = new idleCurve();
+
+private rivalAttack attack = new rivalAttack();
 
 public string side = "left";
 
-public bool doIdle = true;
+public bool doIdle = true; //Boolean to determine when to play de idle movement of character
+public bool isWaiting = true; //Boolean to determine when to play de idle movement of character
+
 public float orientation;
 
 public GameObject rival;
+
+public bool sixKeyHit = false;
+public bool sevenKeyHit = false;
 
 
 
@@ -21,6 +27,11 @@ public GameObject rival;
 	void Start () {
 
 		rival = GameObject.Find("rival");
+		attack.rivalRightFist = GameObject.Find("rivalRightFist");
+
+		attack.rivalLeftFist = GameObject.Find("rivalLeftFist");
+
+		attack.playerHealth.myHealthBar = GameObject.Find("myhealthBarBox"); 
 		
 		//Randomly determine where will rival start moving.
 		
@@ -32,67 +43,40 @@ public GameObject rival;
 	
 	// Update is called once per frame
 	void Update () {
-		
-		if (orientation != 0) {
-			side = "right";
-		} else {
-			side = "left";
-		}
-
-		
-		if(doIdle){
-			idleStance.BezierTime = idleStance.BezierTime + Time.deltaTime * 1.5f;
-
-			if (idleStance.BezierTime >= 20f){
-			    idleStance.BezierTime = 0;
-			}
-			
-			idleStance.CurveX = xMovement(side);
-			idleStance.CurveY = yMovement();
-			rival.transform.position = new Vector3(idleStance.CurveX, idleStance.CurveY, 0);
-		}
-
-
-			
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////Actions to perform when punch lands./////////////////////////////////
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+        attack.checkDamage();		
 
 
 
 	}
 
-	public float xMovement(string side){
+	
 
-		if (side == "right"){
-			idleStance.sideSel = 1;	
-		} else {
-			idleStance.sideSel = -1;
-		}
-
-		if (rival.transform.position.y < 0.9f){
-
-			var tmpEndX = idleStance.EndPointX;
-			var tmpEndY = idleStance.EndPointY;
-
-			var tmpStartX = idleStance.StartPointX;
-			var tmpStartY = idleStance.StartPointY;
-
-			idleStance.resetValues();
-
-			idleStance.EndPointX = tmpStartX;
-			idleStance.EndPointY = tmpStartY;
-
-			idleStance.StartPointX = tmpEndX;
-			idleStance.StartPointY = tmpEndY;
-
-						
-		}
-
-		var result = ((((1-idleStance.BezierTime)*(1-idleStance.BezierTime)) * idleStance.StartPointX) + (2 * idleStance.BezierTime * (1 - idleStance.BezierTime) * idleStance.ControlPointX) + ((idleStance.BezierTime * idleStance.BezierTime) * idleStance.EndPointX)) * idleStance.sideSel;
-		return result;
-		}
-
-	public float yMovement(){
-		var result = (((1-idleStance.BezierTime)*(1-idleStance.BezierTime)) * idleStance.StartPointY) + (2 * idleStance.BezierTime * (1 - idleStance.BezierTime) * idleStance.ControlPointY) + ((idleStance.BezierTime * idleStance.BezierTime) * idleStance.EndPointY);
-		return result;
+	public void doAction(){
+		punch();
 	}
+
+	public void punch(){
+
+				if (sixKeyHit){
+			 
+				doIdle = false;
+				attack.rightPunch();
+									
+				} 
+
+				if (sevenKeyHit){
+				attack.leftPunch();
+				doIdle = false;
+				} 
+				
+			
+			
+		}	
+
+
 
 }

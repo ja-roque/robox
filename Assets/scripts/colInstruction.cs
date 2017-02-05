@@ -13,7 +13,7 @@ public class colInstruction : MonoBehaviour {
 	    	if(Collided == false) {
 	    	Collided = true;	
 	    	Health.health = Health.health - 10f;
-	    	print(	Health.health);
+	    	print("collision box works");
 	        
 	    }
 	        
@@ -21,7 +21,6 @@ public class colInstruction : MonoBehaviour {
 
 	void OnTriggerStay (Collider other)
 	    {
-	        print("Object is withing trigger");
 	        Collided = true;
 
 	    }

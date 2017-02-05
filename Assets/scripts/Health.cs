@@ -7,10 +7,14 @@ using UnityEngine;
 public class Health  {
 
 	public GameObject healthBar;
+	public GameObject myHealthBar;
 
 	public static float health = 200f;
-	public float preHealth = 100f;
+	public static float myHealth = 200f;
+	public static float maxHealth = 200f;
 	public float barWidth = 7;
 
 
 }
+
+
